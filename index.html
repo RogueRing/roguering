@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rogue Ring Camera Map</title>
+
+<link rel="stylesheet" href="css/leaflet.css">
+
+<style>
+
+html, body{
+    margin:0;
+    padding:0;
+    height:100%;
+    font-family:Segoe UI, sans-serif;
+}
+
+#container{
+    display:flex;
+    height:100vh;
+}
+
+#map{
+    flex:1;
+}
+
+#sidebar{
+    width:350px;
+    background:white;
+    border-left:1px solid #ddd;
+    padding:20px;
+    overflow:auto;
+}
+
+input, textarea, select{
+    width:100%;
+    box-sizing:border-box;
+    margin-bottom:12px;
+    padding:10px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#1f6feb;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1857c0;
+}
+
+.hidden{
+    display:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="container">
+
+    <div id="map"></div>
+
+    <div id="sidebar">
+
+        <h2>Add Rogue Camera</h2>
+
+        <p>Click the map to select a location.</p>
+
+        <form id="markerForm" class="hidden">
+
+            <input
+                type="text"
+                id="building_name"
+                placeholder="Building Address"
+                required
+            >
+
+            <select id="architectural_style" required>
+                <option value="">Select Style</option>
+                <option>Ring Camera</option>
+                <option>Personal CCTV</option>
+                <option>Other</option>
+            </select>
+
+            <textarea
+                id="description"
+                rows="5"
+                placeholder="Description"
+            ></textarea>
+
+            <input
+                type="file"
+                id="photo"
+                accept="image/*"
+            >
+
+            <button type="submit">
+                Submit for Review
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="js/leaflet.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
